@@ -2,64 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\BarangKeluar;
 use Illuminate\Http\Request;
 
 class BarangKeluarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        // Ambil data barang keluar dan relasikan dengan barang
+        $data = BarangKeluar::with('barang')->get();
+        return view('barang_keluar.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        // Ambil data barang untuk dropdown
+        $barangs = Barang::all();
+        return view('barang_keluar.create', compact('barangs'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-    }
+        // Validasi input
+        $request->validate([
+            'barang_id' => 'required|exists:barangs,id',
+            'quantity' => 'required|integer|min:1',
+            'destination' => 'required',
+            'tanggal_keluar' => 'required|date',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(BarangKeluar $barangKeluar)
-    {
-        //
-    }
+        // Simpan barang keluar
+        BarangKeluar::create($request->all());
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(BarangKeluar $barangKeluar)
-    {
-        //
-    }
+        // Kurangi stok barang
+        $barang = Barang::find($request->barang_id);
+        $barang->stok -= $request->quantity;
+        $barang->save();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, BarangKeluar $barangKeluar)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(BarangKeluar $barangKeluar)
-    {
-        //
+        return redirect()->route('barang-keluar.index')->with('success', 'Barang keluar berhasil dicatat');
     }
 }
