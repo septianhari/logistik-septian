@@ -26,6 +26,24 @@ class BarangSeeder extends Seeder
             'nama_barang' => 'Peeling',
             'stok' => 200
         ]);
+
+        Barang::create([
+            'kode_barang' => 'B004',
+            'nama_barang' => 'Sunscreen Acne',
+            'stok' => 150
+        ]);
+
+        Barang::create([
+            'kode_barang' => 'B005',
+            'nama_barang' => 'Serum Vitamin C',
+            'stok' => 80
+        ]);
+
+        Barang::create([
+            'kode_barang' => 'B006',
+            'nama_barang' => 'Toner Free Alcohol',
+            'stok' => 120
+        ]);
     }
 }
 
