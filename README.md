@@ -34,8 +34,50 @@ Sistem logistik berbasis web untuk mengelola stok barang, barang masuk, dan bara
 ```bash
 git clone https://github.com/septianhari/logistik-septian.git
 cd logistik-septian
+```
 
 
-#### 1. Install Dependency PHP dengan Composer
+
+#### 2. Install Dependency PHP dengan Composer
 ```bash
 composer install
+```
+
+#### 3. Salin File .env
+```bash
+git cp .env.example .env  # Linux / macOS
+
+copy .env.example .env  # Windows PowerShell
+
+```
+
+#### 4. Generate App Key
+```bash 
+php artisan key:generate
+```
+
+#### 5. Buat Database
+Buat database baru di MySQL, misalnya:
+```bash 
+logistik_namadb
+```
+Lalu edit file .env:
+```bash 
+DB_DATABASE=logistik_namadb
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+
+### 6. Jalankan Migrasi dan Seeder
+```bash 
+php artisan migrate --seed
+```
+
+7. Jalankan Server Lokal
+```bash 
+php artisan serve
+```
+Buka di browser
+```bash
+http://127.0.0.1:8000
+```
