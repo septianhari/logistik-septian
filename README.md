@@ -81,3 +81,21 @@ Buka di browser
 ```bash
 http://127.0.0.1:8000
 ```
+
+
+## 📸 Screenshots
+
+### Halaman Stok Barang
+![Stok](https://raw.githubusercontent.com/septianhari/logistik-septian/main/public/screenshots/stok.jpg)
+
+### Daftar Barang Masuk
+![Daftar Barang Masuk](https://raw.githubusercontent.com/septianhari/logistik-septian/main/public/screenshots/daftar-barang-masuk.jpg)
+
+### Form Barang Masuk
+![Form Barang Masuk](https://raw.githubusercontent.com/septianhari/logistik-septian/main/public/screenshots/form-barang-masuk.jpg)
+
+### Daftar Barang Keluar
+![Daftar Barang Keluar](https://raw.githubusercontent.com/septianhari/logistik-septian/main/public/screenshots/daftar-barang-keluar.jpg)
+
+### Form Barang Keluar
+![Form Barang Keluar](https://raw.githubusercontent.com/septianhari/logistik-septian/main/public/screenshots/form-barang-keluar.jpg)
